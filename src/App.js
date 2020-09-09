@@ -106,7 +106,7 @@ class Application extends React.Component {
               position: "absolute",
               left: 170,
               color: "#2f1dfc",
-              top: 15
+              top: 10
             }}
           >
             &#9677;
@@ -121,7 +121,7 @@ class Application extends React.Component {
               position: "absolute",
               left: 210,
               color: "#2f1dfc",
-              top: 20
+              top: 15
             }}
           >
             &#11199;
