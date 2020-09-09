@@ -83,7 +83,7 @@ class Application extends React.Component {
             onChange={value => this.setState({ value })}
             min={1}
             max={100}
-            style={{ position: "absolute", left: 40, top:25 }}
+            style={{ position: "absolute", left: 40, top:18 }}
           />
           <p
             style={{
