@@ -5,7 +5,7 @@ import "@shwilliam/react-rubber-slider/dist/styles.css";
 import "./style.css";
 
 import mapboxgl from "mapbox-gl";
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoibm5pa2l0YSIsImEiOiJjazdtYzV2MDYwMzliM2dubnVubnJuMTRrIn0.6KqRhtWgMc_nGwMPAqmstQ";
@@ -35,7 +35,7 @@ class Application extends React.Component {
     });
     this.map.scrollZoom.disable();
     this.map.doubleClickZoom.disable();
-    this.map.dragPan.disable();
+    /*this.map.dragPan.disable();*/
     this.map.on("move", () => {
       this.setState({
         lng: this.map.getCenter().lng.toFixed(4),
@@ -43,24 +43,33 @@ class Application extends React.Component {
         zoom: this.map.getZoom().toFixed(2)
       });
     });
-    window.scrollTo(500,650);
+    window.scrollTo(500, 650);
   }
 
   circleFunction() {
     console.log("circle");
-    this.map.panby([0,10]);
     this.setState({ circleText: "Circle" });
+  }
+
+  routeOne() {
+    this.map.panBy([0, 100]);
   }
 
   squareFunction() {
     console.log("square");
+    this.map.flyTo({
+      center: [78.4735, 17.3758],
+      zoom: 18,
+      essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    });
     this.setState({ circleText: "Square" });
   }
 
-  componentDidUpdate() {
+  /*componentDidUpdate() {
     const zoom_level = (1 / 49.5) * (this.state.value - 1) + 18;
     this.map.zoomTo(zoom_level);
-  }
+  }*/
+
   render() {
     return (
       <div>
@@ -72,7 +81,7 @@ class Application extends React.Component {
             right: 0,
             top: 0,
             height: 2000,
-            width:3000
+            width: 3000
           }}
         />
         <div class="titlebar">
@@ -80,10 +89,11 @@ class Application extends React.Component {
             width={100}
             height={1}
             value={this.state.value}
-            onChange={value => this.setState({ value })}
+            /*onChange={value => this.setState({ value })}*/
+            onChange={value => this.map.zoomTo((1 / 49.5) * (value - 1) + 18)}
             min={1}
             max={100}
-            style={{ position: "absolute", left: 40, top:18 }}
+            style={{ position: "absolute", left: 40, top: 18 }}
           />
           <p
             style={{
