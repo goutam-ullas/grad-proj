@@ -17,7 +17,6 @@ class Application extends React.Component {
       lng: 78.4735,
       lat: 17.3758,
       value: 1,
-      zoom: 18,
       squareText: "",
       circleText: ""
     };
@@ -30,7 +29,7 @@ class Application extends React.Component {
       container: this.mapContainer,
       style: "mapbox://styles/nnikita/ckd7n4m5b04e31ip8ai5a1xfj",
       center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
+      zoom: 18,
       pitch: 90,
       attributionControl: false
     });
@@ -49,6 +48,7 @@ class Application extends React.Component {
 
   circleFunction() {
     console.log("circle");
+    this.map.panby([0,10]);
     this.setState({ circleText: "Circle" });
   }
 
@@ -58,8 +58,8 @@ class Application extends React.Component {
   }
 
   componentDidUpdate() {
-    this.state.zoom = (1 / 49.5) * (this.state.value - 1) + 18;
-    this.map.zoomTo(this.state.zoom);
+    const zoom_level = (1 / 49.5) * (this.state.value - 1) + 18;
+    this.map.zoomTo(zoom_level);
   }
   render() {
     return (
