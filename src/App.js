@@ -57,13 +57,13 @@ class Application extends React.Component {
 
   squareFunction() {
     console.log("square");
-    this.map.flyTo({
+    /*this.map.flyTo({
       center: [78.4735, 17.3758],
       zoom: 18,
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
-    });
-    this.state.value = 1;
-    this.setState({ circleText: "Square" });
+    });*/
+    //this.setState({ circleText: "Circle" });
+    window.location.reload(false);
   }
 
   /*componentDidUpdate() {
@@ -90,7 +90,7 @@ class Application extends React.Component {
             width={100}
             height={1}
             value={this.state.value}
-            /*onChange={value => this.setState({ value })}*/
+            //onChange={value => this.setState({ value })}
             onChange={value => this.map.zoomTo((1 / 49.5) * (value - 1) + 18)}
             min={1}
             max={100}
