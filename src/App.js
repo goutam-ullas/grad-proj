@@ -62,6 +62,7 @@ class Application extends React.Component {
       zoom: 18,
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
     });
+    this.state.value = 1;
     this.setState({ circleText: "Square" });
   }
 
