@@ -273,22 +273,6 @@ class Application extends React.Component {
             Theme 4
           </span>
         </div>
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          style={{
-            fontSize: 32,
-            position: "absolute",
-            color: "#2f1dfc",
-            right: 0,
-            top: 0
-          }}
-        >
-          <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
-            primary.main
-          </Box>
-        </Grid>
       </div>
     );
   }
