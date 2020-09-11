@@ -46,13 +46,11 @@ class Application extends React.Component {
     window.scrollTo(500, 650);
   }
 
+  IndexFunction() {}
+
   circleFunction() {
     console.log("circle");
     this.setState({ circleText: "Circle" });
-  }
-
-  routeOne() {
-    this.map.panBy([0, 100]);
   }
 
   squareFunction() {
@@ -86,6 +84,36 @@ class Application extends React.Component {
           }}
         />
         <div class="titlebar">
+          <span
+            role="button"
+            aria-label="Index Button"
+            data-balloon-pos="down-right"
+            onClick={this.indexFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 10,
+              color: "#2f1dfc",
+              top: 7
+            }}
+          >
+            index
+          </span>
+          <span
+            role="button"
+            aria-label="About Button"
+            data-balloon-pos="down-right"
+            onClick={this.aboutFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 100,
+              color: "#2f1dfc",
+              top: 7
+            }}
+          >
+            about
+          </span>
           <RubberSlider
             width={100}
             height={1}
@@ -94,19 +122,8 @@ class Application extends React.Component {
             onChange={value => this.map.zoomTo((1 / 49.5) * (value - 1) + 18)}
             min={1}
             max={100}
-            style={{ position: "absolute", left: 40, top: 18 }}
+            style={{ position: "absolute", left: 200, top: 15 }}
           />
-          <p
-            style={{
-              fontSize: 32,
-              position: "absolute",
-              left: 260,
-              top: -15,
-              color: "#2f1dfc"
-            }}
-          >
-            {this.state.circleText}
-          </p>
           <span
             role="button"
             aria-label="Circle Button"
@@ -115,13 +132,24 @@ class Application extends React.Component {
             style={{
               fontSize: 32,
               position: "absolute",
-              left: 170,
+              left: 330,
               color: "#2f1dfc",
               top: 7
             }}
           >
             &#9677;
           </span>
+          <p
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 300,
+              top: 10,
+              color: "#2f1dfc"
+            }}
+          >
+            {this.state.circleText}
+          </p>
           <span
             role="button"
             aria-label="Square Button"
@@ -130,12 +158,27 @@ class Application extends React.Component {
             style={{
               fontSize: 28,
               position: "absolute",
-              left: 210,
+              left: 380,
               color: "#2f1dfc",
               top: 12
             }}
           >
             &#11199;
+          </span>
+          <span
+            role="button"
+            aria-label="Triangle Button"
+            data-balloon-pos="down-right"
+            onClick={this.squareFunction}
+            style={{
+              fontSize: 28,
+              position: "absolute",
+              left: 420,
+              color: "#2f1dfc",
+              top: 12
+            }}
+          >
+            &#9653;
           </span>
         </div>
       </div>
