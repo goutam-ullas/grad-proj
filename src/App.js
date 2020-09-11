@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import RubberSlider from "@shwilliam/react-rubber-slider";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 
 import "@shwilliam/react-rubber-slider/dist/styles.css";
 import "./style.css";
@@ -59,10 +61,11 @@ class Application extends React.Component {
     this.setState(prevState => ({
       circleState: !prevState.circleState
     }));
-    if(this.state.circleState==true)
-    {this.setState({ circleText: "Circle" });}
-    else
-    {this.setState({ circleText: "" });}
+    if (this.state.circleState == true) {
+      this.setState({ circleText: "Circle" });
+    } else {
+      this.setState({ circleText: "" });
+    }
   }
 
   squareFunction() {
@@ -70,10 +73,11 @@ class Application extends React.Component {
     this.setState(prevState => ({
       squareState: !prevState.squareState
     }));
-    if(this.state.squareState==true)
-    {this.setState({ squareText: "Square" });}
-    else
-    {this.setState({ squareText: "" });}
+    if (this.state.squareState == true) {
+      this.setState({ squareText: "Square" });
+    } else {
+      this.setState({ squareText: "" });
+    }
     /*this.map.flyTo({
       center: [78.4735, 17.3758],
       zoom: 18,
@@ -269,6 +273,22 @@ class Application extends React.Component {
             Theme 4
           </span>
         </div>
+        <Grid
+          item
+          xs={12}
+          sm={4}
+          style={{
+            fontSize: 32,
+            position: "absolute",
+            color: "#2f1dfc",
+            right: 0,
+            top: 0
+          }}
+        >
+          <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
+            primary.main
+          </Box>
+        </Grid>
       </div>
     );
   }
