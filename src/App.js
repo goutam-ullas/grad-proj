@@ -17,6 +17,7 @@ class Application extends React.Component {
       lng: 78.4735,
       lat: 17.3758,
       value: 1,
+      index: true,
       squareText: "",
       circleText: ""
     };
@@ -46,7 +47,10 @@ class Application extends React.Component {
     window.scrollTo(500, 650);
   }
 
-  IndexFunction() {}
+  indexFunction() {
+    console.log("index");
+    this.setState({ index: true });
+  }
 
   circleFunction() {
     console.log("circle");
@@ -169,7 +173,7 @@ class Application extends React.Component {
             role="button"
             aria-label="Triangle Button"
             data-balloon-pos="down-right"
-            onClick={this.squareFunction}
+            onClick={this.triangleFunction}
             style={{
               fontSize: 28,
               position: "absolute",
@@ -179,6 +183,66 @@ class Application extends React.Component {
             }}
           >
             &#9653;
+          </span>
+          <span
+            role="button"
+            aria-label="Theme 1"
+            data-balloon-pos="down-right"
+            onClick={this.themeOneFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 10,
+              color: "#2f1dfc",
+              top: 100
+            }}
+          >
+            Theme 1
+          </span>
+          <span
+            role="button"
+            aria-label="Theme 2"
+            data-balloon-pos="down-right"
+            onClick={this.themeTwoFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 10,
+              color: "#2f1dfc",
+              top: 200
+            }}
+          >
+            Theme 2
+          </span>
+          <span
+            role="button"
+            aria-label="Theme 3"
+            data-balloon-pos="down-right"
+            onClick={this.themeThreeFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 10,
+              color: "#2f1dfc",
+              top: 300
+            }}
+          >
+            Theme 3
+          </span>
+          <span
+            role="button"
+            aria-label="Theme 4"
+            data-balloon-pos="down-right"
+            onClick={this.themeThreeFunction}
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 10,
+              color: "#2f1dfc",
+              top: 400
+            }}
+          >
+            Theme 4
           </span>
         </div>
       </div>
