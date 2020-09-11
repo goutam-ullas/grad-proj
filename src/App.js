@@ -139,7 +139,7 @@ class Application extends React.Component {
             onChange={value => this.map.zoomTo((1 / 49.5) * (value - 1) + 18)}
             min={1}
             max={100}
-            style={{ position: "absolute", left: 200, top: 15 }}
+            style={{ position: "absolute", left: 200, top: 30 }}
           />
           <span
             role="button"
