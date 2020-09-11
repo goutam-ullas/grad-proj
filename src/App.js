@@ -18,6 +18,8 @@ class Application extends React.Component {
       lat: 17.3758,
       value: 1,
       index: true,
+      squareState: true,
+      circleState: true,
       squareText: "",
       circleText: ""
     };
@@ -49,23 +51,34 @@ class Application extends React.Component {
 
   indexFunction() {
     console.log("index");
-    this.setState({ index: true });
+    window.location.reload(false);
   }
 
   circleFunction() {
     console.log("circle");
-    this.setState({ circleText: "Circle" });
+    this.setState(prevState => ({
+      circleState: !prevState.circleState
+    }));
+    if(this.state.circleState==true)
+    {this.setState({ circleText: "Circle" });}
+    else
+    {this.setState({ circleText: "" });}
   }
 
   squareFunction() {
     console.log("square");
+    this.setState(prevState => ({
+      squareState: !prevState.squareState
+    }));
+    if(this.state.squareState==true)
+    {this.setState({ squareText: "Square" });}
+    else
+    {this.setState({ squareText: "" });}
     /*this.map.flyTo({
       center: [78.4735, 17.3758],
       zoom: 18,
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
     });*/
-    //this.setState({ circleText: "Circle" });
-    window.location.reload(false);
   }
 
   /*componentDidUpdate() {
@@ -169,6 +182,17 @@ class Application extends React.Component {
           >
             &#11199;
           </span>
+          <p
+            style={{
+              fontSize: 32,
+              position: "absolute",
+              left: 380,
+              top: 10,
+              color: "#2f1dfc"
+            }}
+          >
+            {this.state.squareText}
+          </p>
           <span
             role="button"
             aria-label="Triangle Button"
