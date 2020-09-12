@@ -22,11 +22,14 @@ class Application extends React.Component {
       index: true,
       squareState: true,
       circleState: true,
+      aboutState: true,
+      aboutWidth: 500,
       squareText: "",
       circleText: ""
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
+    this.aboutFunction = this.aboutFunction.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +58,19 @@ class Application extends React.Component {
     console.log("index");
     window.location.reload(false);
   }
+
+  aboutFunction() {
+    console.log("about");
+    this.setState(prevState => ({
+      aboutState: !prevState.aboutState
+    }));
+    if (this.state.aboutState == true) {
+      this.setState({ aboutWidth: 800 });
+    } else {
+      this.setState({ aboutWidth: 0 });
+    }
+  }
+
 
   circleFunction() {
     console.log("circle");
@@ -272,6 +288,18 @@ class Application extends React.Component {
           >
             Theme 4
           </span>
+        </div>
+        <div
+        style={{
+              fontSize: 32,
+              position: "absolute",
+              right: -500,
+              top: 650,
+              height: 800,
+              width: this.state.aboutWidth,
+              backgroundColor: 'blue'
+            }}>
+          <p> text </p>
         </div>
       </div>
     );
