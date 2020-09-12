@@ -274,21 +274,6 @@ class Application extends React.Component {
           >
             &#9653;
           </span>
-          <span
-            role="button"
-            aria-label="Theme 1"
-            data-balloon-pos="down-right"
-            onClick={this.themeOneFunction}
-            style={{
-              fontSize: 32,
-              position: "absolute",
-              left: 10,
-              color: "#2f1dfc",
-              top: 100
-            }}
-          >
-            Theme 1
-          </span>
         </div>
         <div
           className="about"
