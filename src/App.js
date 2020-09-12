@@ -30,7 +30,9 @@ class Application extends React.Component {
       themeStart: 1000,
       themeGap: 800,
       videoDimX1: 1,
-      videoDimX2: 1
+      videoDimX2: 1,
+      videoZindex1: 1,
+      videoZindex2: 1
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -181,23 +183,23 @@ class Application extends React.Component {
           <p> theme 1 description </p>
             <ReactPlayer
               className="video"
-              style={{ position: "absolute", top: 0, left: 500 }}
+              style={{ position: "absolute", top: 0, left: 500, zIndex:this.state.videoZindex1 }}
               height={this.state.videoDimX1 * 180}
               width={this.state.videoDimX1 * 320}
               url="https://www.youtube.com/watch?v=ug50zmP9I7s"
               controls="true"
-              onPlay={() => this.setState({ videoDimX1: 2 })}
-              onPause={() => this.setState({ videoDimX1: 1 })}
+              onPlay={() => this.setState({ videoDimX1: 2,videoZindex1: 10 })}
+              onPause={() => this.setState({ videoDimX1: 1,videoZindex1: 1 })}
             />
             <ReactPlayer
               className="video"
-              style={{ position: "absolute", top: 120, left: 800 }}
+              style={{ position: "absolute", top: 120, left: 800, zIndex:this.state.videoZindex2 }}
               height={this.state.videoDimX2 * 180}
               width={this.state.videoDimX2 * 320}
               url="https://www.youtube.com/watch?v=ug50zmP9I7s"
               controls="true"
-              onPlay={() => this.setState({ videoDimX2: 2 })}
-              onPause={() => this.setState({ videoDimX2: 1 })}
+              onPlay={() => this.setState({ videoDimX2: 2,videoZindex2: 10  })}
+              onPause={() => this.setState({ videoDimX2: 1,videoZindex2: 1 })}
             />
         </div>
         <div
