@@ -40,12 +40,58 @@ class Application extends React.Component {
       center: [this.state.lng, this.state.lat],
       zoom: 18,
       pitch: 60,
-      bearing: -12,
-      attributionControl: false
+      attributionControl: false,
+      interactive: false
     });
     this.map.scrollZoom.disable();
     this.map.doubleClickZoom.disable();
+    this.map.dragPan.enable();
     /*this.map.dragPan.disable();*/
+    // pixels the map pans when the up or down arrow is clicked
+    var deltaDistance = 100;
+
+    // degrees the map rotates when the left or right arrow is clicked
+    var deltaDegrees = 25;
+
+    function easing(t) {
+      return t * (2 - t);
+    }
+
+    this.map.on("load", () => {
+      this.map.getCanvas().focus();
+
+      this.map.getCanvas().addEventListener(
+        "keydown",
+        (e) => {
+          e.preventDefault();
+          if (e.which === 38) {
+            // up
+            this.map.panBy([0, -deltaDistance], {
+              easing: easing
+            });
+          } else if (e.which === 40) {
+            // down
+            this.map.panBy([0, deltaDistance], {
+              easing: easing
+            });
+          } else if (e.which === 37) {
+            // left
+            this.map.easeTo({
+              bearing: this.map.getBearing() - 25,
+              easing: easing
+            });
+          } else if (e.which === 39) {
+            // right
+            this.map.easeTo({
+              bearing: this.map.getBearing() + 25,
+              easing: easing
+            });
+          }
+        },
+        true
+      );
+    });
+
     this.map.on("move", () => {
       this.setState({
         lng: this.map.getCenter().lng.toFixed(4),
@@ -67,7 +113,7 @@ class Application extends React.Component {
       aboutState: !prevState.aboutState
     }));
     if (this.state.aboutState == true) {
-      this.setState({ aboutWidth: window.innerWidth/2 });
+      this.setState({ aboutWidth: window.innerWidth / 2 });
     } else {
       this.setState({ aboutWidth: 0 });
     }
@@ -318,7 +364,7 @@ class Application extends React.Component {
               color: "white"
             }}
           >
-            		&#10005;
+            &#10005;
           </span>
           <p style={{ margin: 50 }}> {this.aboutText} </p>
         </div>
