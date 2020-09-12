@@ -26,14 +26,10 @@ class Application extends React.Component {
       aboutWidth: 0,
       squareText: "",
       circleText: "",
-      mapHeight: 2500,
-      mapWidth: 3000,
       maxThemes: 2,
-      themeLeft: 600,
-      themeStart: 1500,
-      themeGap: 500,
-      initScrollTop: 650,
-      initScrollLeft: 500
+      themeLeft: 50,
+      themeStart: 50,
+      themeGap: 500
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -104,12 +100,11 @@ class Application extends React.Component {
         zoom: this.map.getZoom().toFixed(2)
       });
     });
-    window.scrollTo(this.state.initScrollLeft, this.state.initScrollTop);
   }
 
   indexFunction() {
     console.log("index");
-    window.location.reload(false);
+    window.location.reload(true);
   }
 
   aboutFunction() {
@@ -134,8 +129,8 @@ class Application extends React.Component {
       this.setState(prevState => ({ circleState: prevState.circleState + 1 }));
     }
     console.log(this.state.circleState);
-    var scrollTop = this.state.initScrollTop + (this.state.themeGap*this.state.circleState);
-    window.scrollTo(this.state.initScrollLeft, scrollTop);
+    var scrollTop = this.state.themeGap * this.state.circleState;
+    window.scrollTo(0, scrollTop);
   }
 
   squareFunction() {
@@ -158,12 +153,12 @@ class Application extends React.Component {
         <div
           ref={el => (this.mapContainer = el)}
           style={{
-            position: "absolute",
+            position: "fixed",
             left: 0,
             right: 0,
             top: 0,
-            height: this.state.mapHeight,
-            width: this.state.mapWidth
+            height: window.innerHeight,
+            width: window.innerWidth
           }}
         />
         <div className="titlebar">
@@ -305,7 +300,7 @@ class Application extends React.Component {
             position: "absolute",
             color: "#2f1dfc",
             left: this.state.themeLeft,
-            top: this.state.themeStart
+            top: window.innerHeight + this.state.themeStart
           }}
         >
           <hr style={{ borderColor: "#2f1dfc" }} />
@@ -321,7 +316,8 @@ class Application extends React.Component {
             position: "absolute",
             color: "#2f1dfc",
             left: this.state.themeLeft,
-            top: this.state.themeStart + this.state.themeGap
+            top:
+              window.innerHeight + this.state.themeStart + this.state.themeGap
           }}
         >
           <hr style={{ borderColor: "#2f1dfc" }} />
