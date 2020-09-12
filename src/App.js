@@ -29,7 +29,8 @@ class Application extends React.Component {
       themeLeft: 50,
       themeStart: 1000,
       themeGap: 800,
-      videoDimX1: 1
+      videoDimX1: 1,
+      videoDimX2: 1
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -191,12 +192,12 @@ class Application extends React.Component {
             <ReactPlayer
               className="video"
               style={{ position: "absolute", top: 120, left: 800 }}
-              height={this.state.videoDimX1 * 180}
-              width={this.state.videoDimX1 * 320}
+              height={this.state.videoDimX2 * 180}
+              width={this.state.videoDimX2 * 320}
               url="https://www.youtube.com/watch?v=ug50zmP9I7s"
               controls="true"
-              onPlay={() => this.setState({ videoDimX1: 2 })}
-              onPause={() => this.setState({ videoDimX1: 1 })}
+              onPlay={() => this.setState({ videoDimX2: 2 })}
+              onPause={() => this.setState({ videoDimX2: 1 })}
             />
         </div>
         <div
