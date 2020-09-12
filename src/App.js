@@ -108,6 +108,7 @@ class Application extends React.Component {
   indexFunction() {
     console.log("index");
     window.location.reload(true);
+    window.scrollTo(0,0);
   }
 
   enlargeVid1() {
