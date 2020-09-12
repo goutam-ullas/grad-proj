@@ -66,7 +66,7 @@ class Application extends React.Component {
       aboutState: !prevState.aboutState
     }));
     if (this.state.aboutState == true) {
-      this.setState({ aboutWidth: 800 });
+      this.setState({ aboutWidth: 600 });
     } else {
       this.setState({ aboutWidth: 0 });
     }
@@ -302,7 +302,7 @@ class Application extends React.Component {
             top: 0,
             height: 800,
             width: this.state.aboutWidth,
-            backgroundColor: "blue"
+            backgroundColor: "black"
           }}
         >
           <span
