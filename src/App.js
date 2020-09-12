@@ -355,7 +355,7 @@ class Application extends React.Component {
               fontSize: 32,
               position: "absolute",
               left: 10,
-              color: "white"
+              color: "blue"
             }}
           >
             &#10005;
