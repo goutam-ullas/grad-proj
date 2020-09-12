@@ -27,8 +27,8 @@ class Application extends React.Component {
       circleText: "",
       maxThemes: 2,
       themeLeft: 50,
-      themeStart: 1000,
-      themeGap: 800,
+      themeStart: 1.25*window.innerHeight,
+      themeGap: window.innerHeight,
       videoDimX1: 1,
       videoDimX2: 1,
       videoZindex1: 1,
@@ -139,7 +139,7 @@ class Application extends React.Component {
       this.setState(prevState => ({ circleState: prevState.circleState + 1 }));
     }
     console.log(this.state.circleState);
-    var scrollTop = this.state.themeStart * this.state.circleState;
+    var scrollTop = this.state.themeGap * this.state.circleState;
     window.scrollTo(0, scrollTop);
   }
 
@@ -177,7 +177,8 @@ class Application extends React.Component {
             position: "absolute",
             color: "black",
             left: this.state.themeLeft,
-            top: this.state.themeStart
+            top: this.state.themeStart,
+            height: this.state.themeGap
           }}
         >
           <p> theme 1 </p>
@@ -209,16 +210,34 @@ class Application extends React.Component {
             position: "absolute",
             color: "black",
             left: this.state.themeLeft,
-            top: this.state.themeStart + this.state.themeGap
+            top: this.state.themeStart + this.state.themeGap,
+            height: this.state.themeGap
           }}
         >
           <p> theme 2 </p>
           <p> theme 2 description </p>
-          <div style={{ position: "absolute", top: 50, left: 500 }}>
-            visuals
-          </div>
+            <ReactPlayer
+              className="video"
+              style={{ position: "absolute", top: 0, left: 500, zIndex:this.state.videoZindex1 }}
+              height={this.state.videoDimX1 * 180}
+              width={this.state.videoDimX1 * 320}
+              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+              controls="true"
+              onPlay={() => this.setState({ videoDimX1: 2,videoZindex1: 10 })}
+              onPause={() => this.setState({ videoDimX1: 1,videoZindex1: 1 })}
+            />
+            <ReactPlayer
+              className="video"
+              style={{ position: "absolute", top: 190, left: 650, zIndex:this.state.videoZindex2 }}
+              height={this.state.videoDimX2 * 180}
+              width={this.state.videoDimX2 * 320}
+              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+              controls="true"
+              onPlay={() => this.setState({ videoDimX2: 2,videoZindex2: 10  })}
+              onPause={() => this.setState({ videoDimX2: 1,videoZindex2: 1 })}
+            />
         </div>
-        <div className="titlebar">
+        <div className="titlebar" style={{zIndex:1000}}>
           <span
             role="button"
             aria-label="Index Button"
