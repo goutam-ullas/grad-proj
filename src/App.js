@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import RubberSlider from "@shwilliam/react-rubber-slider";
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player";
 
 import "@shwilliam/react-rubber-slider/dist/styles.css";
 import "./style.css";
@@ -28,7 +28,8 @@ class Application extends React.Component {
       maxThemes: 2,
       themeLeft: 50,
       themeStart: 1000,
-      themeGap: 800
+      themeGap: 800,
+      videoDimX1: 1
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -106,6 +107,12 @@ class Application extends React.Component {
     window.location.reload(true);
   }
 
+  enlargeVid1() {
+    this.setState({ videoDimX1: 2 });
+  }
+
+  ensmallVide1() {}
+
   aboutFunction() {
     console.log("about");
     this.setState(prevState => ({
@@ -171,8 +178,15 @@ class Application extends React.Component {
         >
           <p> theme 1 </p>
           <p> theme 1 description </p>
-          <div style={{ position: "absolute", top: 0, left: 500}}>
-            <ReactPlayer height="180px" width="320px" url="https://www.youtube.com/watch?v=ug50zmP9I7s" controls = "true"/>
+          <div style={{ position: "absolute", top: 0, left: 500 }}>
+            <ReactPlayer
+              height={this.state.videoDimX1 * 180}
+              width={this.state.videoDimX1 * 320}
+              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+              controls="true"
+              onPlay={()=>this.setState({videoDimX1:2})}
+              onPause={()=>this.setState({videoDimX1:1})}
+            />
           </div>
         </div>
         <div
