@@ -310,3 +310,7 @@ background-color: black;
 overflow:scroll;
 transition: width 0.5s
 }
+
+.video {
+  transition: width 0.5s, height 0.5s
+}

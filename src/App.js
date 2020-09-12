@@ -178,16 +178,16 @@ class Application extends React.Component {
         >
           <p> theme 1 </p>
           <p> theme 1 description </p>
-          <div style={{ position: "absolute", top: 0, left: 500 }}>
             <ReactPlayer
+              className="video"
+              style={{ position: "absolute", top: 0, left: 500 }}
               height={this.state.videoDimX1 * 180}
               width={this.state.videoDimX1 * 320}
               url="https://www.youtube.com/watch?v=ug50zmP9I7s"
               controls="true"
-              onPlay={()=>this.setState({videoDimX1:2})}
-              onPause={()=>this.setState({videoDimX1:1})}
+              onPlay={() => this.setState({ videoDimX1: 2 })}
+              onPause={() => this.setState({ videoDimX1: 1 })}
             />
-          </div>
         </div>
         <div
           style={{
