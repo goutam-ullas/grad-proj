@@ -27,12 +27,14 @@ class Application extends React.Component {
       circleText: "",
       maxThemes: 2,
       themeLeft: 50,
-      themeStart: 1.25*window.innerHeight,
+      themeStart: 1.25 * window.innerHeight,
       themeGap: window.innerHeight,
       videoDimX1: 1,
       videoDimX2: 1,
+      videoDimX3: 1,
       videoZindex1: 1,
-      videoZindex2: 1
+      videoZindex2: 1,
+      videoZindex3: 1
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -108,7 +110,7 @@ class Application extends React.Component {
   indexFunction() {
     console.log("index");
     window.location.reload(true);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   enlargeVid1() {
@@ -183,26 +185,51 @@ class Application extends React.Component {
         >
           <p> theme 1 </p>
           <p> theme 1 description </p>
-            <ReactPlayer
-              className="video"
-              style={{ position: "absolute", top: 0, left: 500, zIndex:this.state.videoZindex1 }}
-              height={this.state.videoDimX1 * 180}
-              width={this.state.videoDimX1 * 320}
-              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
-              controls="true"
-              onPlay={() => this.setState({ videoDimX1: 2,videoZindex1: 10 })}
-              onPause={() => this.setState({ videoDimX1: 1,videoZindex1: 1 })}
-            />
-            <ReactPlayer
-              className="video"
-              style={{ position: "absolute", top: 190, left: 650, zIndex:this.state.videoZindex2 }}
-              height={this.state.videoDimX2 * 180}
-              width={this.state.videoDimX2 * 320}
-              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
-              controls="true"
-              onPlay={() => this.setState({ videoDimX2: 2,videoZindex2: 10  })}
-              onPause={() => this.setState({ videoDimX2: 1,videoZindex2: 1 })}
-            />
+          <ReactPlayer
+            className="video"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 400,
+              zIndex: this.state.videoZindex1
+            }}
+            height={this.state.videoDimX1 * 180}
+            width={this.state.videoDimX1 * 320}
+            url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+            controls="true"
+            onPlay={() => this.setState({ videoDimX1: 2, videoZindex1: 10 })}
+            onPause={() => this.setState({ videoDimX1: 1, videoZindex1: 1 })}
+          />
+          <ReactPlayer
+            className="video"
+            style={{
+              position: "absolute",
+              top: 190,
+              left: 550,
+              zIndex: this.state.videoZindex2
+            }}
+            height={this.state.videoDimX2 * 180}
+            width={this.state.videoDimX2 * 320}
+            url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+            controls="true"
+            onPlay={() => this.setState({ videoDimX2: 2, videoZindex2: 10 })}
+            onPause={() => this.setState({ videoDimX2: 1, videoZindex2: 1 })}
+          />
+          <ReactPlayer
+            className="video"
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 900,
+              zIndex: this.state.videoZindex3
+            }}
+            height={this.state.videoDimX3 * 180}
+            width={this.state.videoDimX3 * 320}
+            url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+            controls="true"
+            onPlay={() => this.setState({ videoDimX3: 2, videoZindex3: 10 })}
+            onPause={() => this.setState({ videoDimX3: 1, videoZindex3: 1 })}
+          />
         </div>
         <div
           style={{
@@ -216,28 +243,38 @@ class Application extends React.Component {
         >
           <p> theme 2 </p>
           <p> theme 2 description </p>
-            <ReactPlayer
-              className="video"
-              style={{ position: "absolute", top: 0, left: 500, zIndex:this.state.videoZindex1 }}
-              height={this.state.videoDimX1 * 180}
-              width={this.state.videoDimX1 * 320}
-              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
-              controls="true"
-              onPlay={() => this.setState({ videoDimX1: 2,videoZindex1: 10 })}
-              onPause={() => this.setState({ videoDimX1: 1,videoZindex1: 1 })}
-            />
-            <ReactPlayer
-              className="video"
-              style={{ position: "absolute", top: 190, left: 650, zIndex:this.state.videoZindex2 }}
-              height={this.state.videoDimX2 * 180}
-              width={this.state.videoDimX2 * 320}
-              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
-              controls="true"
-              onPlay={() => this.setState({ videoDimX2: 2,videoZindex2: 10  })}
-              onPause={() => this.setState({ videoDimX2: 1,videoZindex2: 1 })}
-            />
+          <ReactPlayer
+            className="video"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 500,
+              zIndex: this.state.videoZindex1
+            }}
+            height={this.state.videoDimX1 * 180}
+            width={this.state.videoDimX1 * 320}
+            url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+            controls="true"
+            onPlay={() => this.setState({ videoDimX1: 2, videoZindex1: 10 })}
+            onPause={() => this.setState({ videoDimX1: 1, videoZindex1: 1 })}
+          />
+          <ReactPlayer
+            className="video"
+            style={{
+              position: "absolute",
+              top: 190,
+              left: 650,
+              zIndex: this.state.videoZindex2
+            }}
+            height={this.state.videoDimX2 * 180}
+            width={this.state.videoDimX2 * 320}
+            url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+            controls="true"
+            onPlay={() => this.setState({ videoDimX2: 2, videoZindex2: 10 })}
+            onPause={() => this.setState({ videoDimX2: 1, videoZindex2: 1 })}
+          />
         </div>
-        <div className="titlebar" style={{zIndex:1000}}>
+        <div className="titlebar" style={{ zIndex: 1000 }}>
           <span
             role="button"
             aria-label="Index Button"
