@@ -28,8 +28,8 @@ class Application extends React.Component {
       circleText: "",
       maxThemes: 2,
       themeLeft: 50,
-      themeStart: 50,
-      themeGap: 500
+      themeStart: 1000,
+      themeGap: 800
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
@@ -167,7 +167,7 @@ class Application extends React.Component {
             position: "absolute",
             color: "black",
             left: this.state.themeLeft,
-            top: window.innerHeight + this.state.themeStart
+            top: this.state.themeStart
           }}
         >
           <p> theme 1 </p>
@@ -182,8 +182,7 @@ class Application extends React.Component {
             position: "absolute",
             color: "black",
             left: this.state.themeLeft,
-            top:
-              window.innerHeight + this.state.themeStart + this.state.themeGap
+            top: this.state.themeStart + this.state.themeGap
           }}
         >
           <p> theme 2 </p>
