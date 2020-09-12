@@ -21,16 +21,25 @@ class Application extends React.Component {
       value: 50,
       index: true,
       squareState: true,
-      circleState: true,
+      circleState: 1,
       aboutState: true,
       aboutWidth: 0,
       squareText: "",
-      circleText: ""
+      circleText: "",
+      mapHeight: 2500,
+      mapWidth: 3000,
+      maxThemes: 2,
+      themeLeft: 600,
+      themeStart: 1500,
+      themeGap: 500,
+      initScrollTop: 650,
+      initScrollLeft: 500
     };
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
     this.aboutFunction = this.aboutFunction.bind(this);
-    this.aboutText = "This thesis looks at an urban market, Begum Bazar situated in the old city of Hyderabad and its relation to gender. The work, initially set out to explore kitchen objects and their place in shaping one’s life, eventually becomes an exploration into how, space and gender narratives co-exist and help sustain each other. By using the example of this market situated in a major metropolitan Indian city, and through interviews of people occupying and visiting the space, the work speculates on how social hierarchies and practices gain ground. This work is an inquiry, which is both personal and not, and in doing so, also wrestles on this interplay between the public and the private, in gender and in research. Through this, the thesis ultimately hopes to express how the organization of space is linked to how power organizes itself. This discussion is told through questions as they came to be felt. This thesis looks at an urban market, Begum Bazar situated in the old city of Hyderabad and its relation to gender. The work, initially set out to explore kitchen objects and their place in shaping one’s life, eventually becomes an exploration into how, space and gender narratives co-exist and help sustain each other. By using the example of this market situated in a major metropolitan Indian city, and through interviews of people occupying and visiting the space, the work speculates on how social hierarchies and practices gain ground. This work is an inquiry, which is both personal and not, and in doing so, also wrestles on this interplay between the public and the private, in gender and in research. Through this, the thesis ultimately hopes to express how the organization of space is linked to how power organizes itself. This discussion is told through questions as they came to be felt.";
+    this.aboutText =
+      "This thesis looks at an urban market, Begum Bazar situated in the old city of Hyderabad and its relation to gender. The work, initially set out to explore kitchen objects and their place in shaping one’s life, eventually becomes an exploration into how, space and gender narratives co-exist and help sustain each other. By using the example of this market situated in a major metropolitan Indian city, and through interviews of people occupying and visiting the space, the work speculates on how social hierarchies and practices gain ground. This work is an inquiry, which is both personal and not, and in doing so, also wrestles on this interplay between the public and the private, in gender and in research. Through this, the thesis ultimately hopes to express how the organization of space is linked to how power organizes itself. This discussion is told through questions as they came to be felt. This thesis looks at an urban market, Begum Bazar situated in the old city of Hyderabad and its relation to gender. The work, initially set out to explore kitchen objects and their place in shaping one’s life, eventually becomes an exploration into how, space and gender narratives co-exist and help sustain each other. By using the example of this market situated in a major metropolitan Indian city, and through interviews of people occupying and visiting the space, the work speculates on how social hierarchies and practices gain ground. This work is an inquiry, which is both personal and not, and in doing so, also wrestles on this interplay between the public and the private, in gender and in research. Through this, the thesis ultimately hopes to express how the organization of space is linked to how power organizes itself. This discussion is told through questions as they came to be felt.";
   }
 
   componentDidMount() {
@@ -46,11 +55,7 @@ class Application extends React.Component {
     this.map.scrollZoom.disable();
     this.map.doubleClickZoom.disable();
     this.map.dragPan.enable();
-    /*this.map.dragPan.disable();*/
-    // pixels the map pans when the up or down arrow is clicked
     var deltaDistance = 100;
-
-    // degrees the map rotates when the left or right arrow is clicked
     var deltaDegrees = 10;
 
     function easing(t) {
@@ -99,7 +104,7 @@ class Application extends React.Component {
         zoom: this.map.getZoom().toFixed(2)
       });
     });
-    window.scrollTo(500, 650);
+    window.scrollTo(this.state.initScrollLeft, this.state.initScrollTop);
   }
 
   indexFunction() {
@@ -121,16 +126,16 @@ class Application extends React.Component {
 
   circleFunction() {
     console.log("circle");
-    this.setState(prevState => ({
-      circleState: !prevState.circleState
-    }));
     this.setState({ aboutWidth: 0 });
     this.setState({ aboutState: true });
-    if (this.state.circleState == true) {
-      this.setState({ circleText: "Circle" });
+    if (this.state.circleState == this.state.maxThemes) {
+      this.setState({ circleState: 0 });
     } else {
-      this.setState({ circleText: "" });
+      this.setState(prevState => ({ circleState: prevState.circleState + 1 }));
     }
+    console.log(this.state.circleState);
+    var scrollTop = this.state.initScrollTop + (this.state.themeGap*this.state.circleState);
+    window.scrollTo(this.state.initScrollLeft, scrollTop);
   }
 
   squareFunction() {
@@ -145,17 +150,7 @@ class Application extends React.Component {
     } else {
       this.setState({ squareText: "" });
     }
-    /*this.map.flyTo({
-      center: [78.4735, 17.3758],
-      zoom: 18,
-      essential: true // this animation is considered essential with respect to prefers-reduced-motion
-    });*/
   }
-
-  /*componentDidUpdate() {
-    const zoom_level = (1 / 49.5) * (this.state.value - 1) + 18;
-    this.map.zoomTo(zoom_level);
-  }*/
 
   render() {
     return (
@@ -167,11 +162,11 @@ class Application extends React.Component {
             left: 0,
             right: 0,
             top: 0,
-            height: 2000,
-            width: 3000
+            height: this.state.mapHeight,
+            width: this.state.mapWidth
           }}
         />
-        <div class="titlebar">
+        <div className="titlebar">
           <span
             role="button"
             aria-label="Index Button"
@@ -185,8 +180,7 @@ class Application extends React.Component {
               top: 7
             }}
           >
-            	&#11199;
-
+            &#11199;
           </span>
           <span
             role="button"
@@ -295,53 +289,9 @@ class Application extends React.Component {
           >
             Theme 1
           </span>
-          <span
-            role="button"
-            aria-label="Theme 2"
-            data-balloon-pos="down-right"
-            onClick={this.themeTwoFunction}
-            style={{
-              fontSize: 32,
-              position: "absolute",
-              left: 10,
-              color: "#2f1dfc",
-              top: 200
-            }}
-          >
-            Theme 2
-          </span>
-          <span
-            role="button"
-            aria-label="Theme 3"
-            data-balloon-pos="down-right"
-            onClick={this.themeThreeFunction}
-            style={{
-              fontSize: 32,
-              position: "absolute",
-              left: 10,
-              color: "#2f1dfc",
-              top: 300
-            }}
-          >
-            Theme 3
-          </span>
-          <span
-            role="button"
-            aria-label="Theme 4"
-            data-balloon-pos="down-right"
-            onClick={this.themeThreeFunction}
-            style={{
-              fontSize: 32,
-              position: "absolute",
-              left: 10,
-              color: "#2f1dfc",
-              top: 400
-            }}
-          >
-            Theme 4
-          </span>
         </div>
-        <div class = "wrapper"
+        <div
+          className="about"
           style={{
             width: this.state.aboutWidth,
             height: window.innerHeight,
@@ -363,6 +313,38 @@ class Application extends React.Component {
             &#10005;
           </span>
           <p style={{ margin: 50 }}> {this.aboutText} </p>
+        </div>
+        <div
+          style={{
+            fontSize: 32,
+            position: "absolute",
+            color: "#2f1dfc",
+            left: this.state.themeLeft,
+            top: this.state.themeStart
+          }}
+        >
+          <hr style={{ borderColor: "#2f1dfc" }} />
+          <p> theme 1 </p>
+          <p> theme 1 description </p>
+          <div style={{ position: "absolute", top: 50, left: 500 }}>
+            visuals
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 32,
+            position: "absolute",
+            color: "#2f1dfc",
+            left: this.state.themeLeft,
+            top: this.state.themeStart + this.state.themeGap
+          }}
+        >
+          <hr style={{ borderColor: "#2f1dfc" }} />
+          <p> theme 2 </p>
+          <p> theme 2 description </p>
+          <div style={{ position: "absolute", top: 50, left: 500 }}>
+            visuals
+          </div>
         </div>
       </div>
     );

@@ -300,7 +300,7 @@ button[aria-label][data-balloon-pos] {
   width: 100%;
 }
 
-.wrapper {
+.about {
 color: white;
 position: fixed;
 display:  flex;
