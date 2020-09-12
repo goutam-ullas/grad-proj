@@ -60,7 +60,7 @@ class Application extends React.Component {
     this.map.on("load", () => {
       this.map.getCanvas().focus();
 
-      this.map.getCanvas().addEventListener(
+      window.addEventListener(
         "keydown",
         e => {
           e.preventDefault();
