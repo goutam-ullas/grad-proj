@@ -66,7 +66,7 @@ class Application extends React.Component {
       aboutState: !prevState.aboutState
     }));
     if (this.state.aboutState == true) {
-      this.setState({ aboutWidth: 700 });
+      this.setState({ aboutWidth: window.innerWidth/2 });
     } else {
       this.setState({ aboutWidth: 0 });
     }
