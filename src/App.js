@@ -30,7 +30,7 @@ class Application extends React.Component {
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
     this.aboutFunction = this.aboutFunction.bind(this);
-    this.aboutText = "Nikita NArayan's revolutionary graduation project"
+    this.aboutText = "Nikita Narayan's revolutionary graduation project"
   }
 
   componentDidMount() {
