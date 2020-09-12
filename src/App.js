@@ -62,7 +62,7 @@ class Application extends React.Component {
 
       this.map.getCanvas().addEventListener(
         "keydown",
-        (e) => {
+        e => {
           e.preventDefault();
           if (e.which === 38) {
             // up
