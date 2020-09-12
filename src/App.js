@@ -185,7 +185,8 @@ class Application extends React.Component {
               top: 7
             }}
           >
-            index
+            	&#11199;
+
           </span>
           <span
             role="button"
