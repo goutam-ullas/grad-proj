@@ -161,6 +161,37 @@ class Application extends React.Component {
             width: window.innerWidth
           }}
         />
+        <div
+          style={{
+            fontSize: 24,
+            position: "absolute",
+            color: "black",
+            left: this.state.themeLeft,
+            top: window.innerHeight + this.state.themeStart
+          }}
+        >
+          <p> theme 1 </p>
+          <p> theme 1 description </p>
+          <div style={{ position: "absolute", top: 50, left: 500 }}>
+            visuals
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 24,
+            position: "absolute",
+            color: "black",
+            left: this.state.themeLeft,
+            top:
+              window.innerHeight + this.state.themeStart + this.state.themeGap
+          }}
+        >
+          <p> theme 2 </p>
+          <p> theme 2 description </p>
+          <div style={{ position: "absolute", top: 50, left: 500 }}>
+            visuals
+          </div>
+        </div>
         <div className="titlebar">
           <span
             role="button"
@@ -293,39 +324,6 @@ class Application extends React.Component {
             &#10005;
           </span>
           <p style={{ margin: 50 }}> {this.aboutText} </p>
-        </div>
-        <div
-          style={{
-            fontSize: 32,
-            position: "absolute",
-            color: "#2f1dfc",
-            left: this.state.themeLeft,
-            top: window.innerHeight + this.state.themeStart
-          }}
-        >
-          <hr style={{ borderColor: "#2f1dfc" }} />
-          <p> theme 1 </p>
-          <p> theme 1 description </p>
-          <div style={{ position: "absolute", top: 50, left: 500 }}>
-            visuals
-          </div>
-        </div>
-        <div
-          style={{
-            fontSize: 32,
-            position: "absolute",
-            color: "#2f1dfc",
-            left: this.state.themeLeft,
-            top:
-              window.innerHeight + this.state.themeStart + this.state.themeGap
-          }}
-        >
-          <hr style={{ borderColor: "#2f1dfc" }} />
-          <p> theme 2 </p>
-          <p> theme 2 description </p>
-          <div style={{ position: "absolute", top: 50, left: 500 }}>
-            visuals
-          </div>
         </div>
       </div>
     );
