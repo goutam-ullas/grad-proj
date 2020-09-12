@@ -247,9 +247,9 @@ class Application extends React.Component {
             style={{
               fontSize: 48,
               position: "absolute",
-              left: 380,
+              left: 378,
               color: "#2f1dfc",
-              top: 12
+              top: 10
             }}
           >
             &#42;
