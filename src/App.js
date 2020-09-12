@@ -18,7 +18,7 @@ class Application extends React.Component {
     this.state = {
       lng: 78.4735,
       lat: 17.3758,
-      value: 1,
+      value: 50,
       index: true,
       squareState: true,
       circleState: true,
