@@ -142,7 +142,15 @@ class Application extends React.Component {
     }
     console.log(this.state.circleState);
     var scrollTop = this.state.themeGap * this.state.circleState;
-    window.scrollTo(0, scrollTop);
+    if (scrollTop == 0) {
+      window.scrollTo(0, scrollTop);
+    } else {
+      window.scroll({
+        top: scrollTop,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
   }
 
   squareFunction() {
