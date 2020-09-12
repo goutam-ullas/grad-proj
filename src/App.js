@@ -39,7 +39,8 @@ class Application extends React.Component {
       style: "mapbox://styles/nnikita/ckd7n4m5b04e31ip8ai5a1xfj",
       center: [this.state.lng, this.state.lat],
       zoom: 18,
-      pitch: 90,
+      pitch: 60,
+      bearing: -12,
       attributionControl: false
     });
     this.map.scrollZoom.disable();
