@@ -23,7 +23,7 @@ class Application extends React.Component {
       squareState: true,
       circleState: true,
       aboutState: true,
-      aboutWidth: 500,
+      aboutWidth: 0,
       squareText: "",
       circleText: ""
     };
