@@ -305,7 +305,7 @@ class Application extends React.Component {
               width: this.state.aboutWidth,
               backgroundColor: 'blue'
             }}>
-          <p style ={{margin: 20}}> this.aboutText </p>
+          <p style ={{margin: 20}}> {this.aboutText} </p>
         </div>
       </div>
     );
