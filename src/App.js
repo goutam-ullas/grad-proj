@@ -188,6 +188,16 @@ class Application extends React.Component {
               onPlay={() => this.setState({ videoDimX1: 2 })}
               onPause={() => this.setState({ videoDimX1: 1 })}
             />
+            <ReactPlayer
+              className="video"
+              style={{ position: "absolute", top: 120, left: 800 }}
+              height={this.state.videoDimX1 * 180}
+              width={this.state.videoDimX1 * 320}
+              url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+              controls="true"
+              onPlay={() => this.setState({ videoDimX1: 2 })}
+              onPause={() => this.setState({ videoDimX1: 1 })}
+            />
         </div>
         <div
           style={{
