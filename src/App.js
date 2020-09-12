@@ -172,7 +172,7 @@ class Application extends React.Component {
           <p> theme 1 </p>
           <p> theme 1 description </p>
           <div style={{ position: "absolute", top: 0, left: 500}}>
-            <ReactPlayer height="180px" width="320px" url="https://www.youtube.com/watch?v=ug50zmP9I7s" />
+            <ReactPlayer height="180px" width="320px" url="https://www.youtube.com/watch?v=ug50zmP9I7s" controls = "true"/>
           </div>
         </div>
         <div
