@@ -312,5 +312,5 @@ transition: width 0.5s
 }
 
 .video {
-  transition: width 0.5s, height 0.5s
+  transition: width 1s, height 1s
 }
