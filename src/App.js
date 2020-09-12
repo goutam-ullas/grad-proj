@@ -17,7 +17,7 @@ class Application extends React.Component {
     super(props);
     this.state = {
       lng: 78.4735,
-      lat: 17.3758,
+      lat: 17.3755,
       value: 50,
       index: true,
       squareState: true,
