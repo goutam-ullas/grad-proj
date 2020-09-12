@@ -30,7 +30,7 @@ class Application extends React.Component {
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
     this.aboutFunction = this.aboutFunction.bind(this);
-    this.aboutText = "Nikita Narayan's revolutionary graduation project";
+    this.aboutText = "This thesis looks at an urban market, Begum Bazar situated in the old city of Hyderabad and its relation to gender. The work, initially set out to explore kitchen objects and their place in shaping one’s life, eventually becomes an exploration into how, space and gender narratives co-exist and help sustain each other. By using the example of this market situated in a major metropolitan Indian city, and through interviews of people occupying and visiting the space, the work speculates on how social hierarchies and practices gain ground. This work is an inquiry, which is both personal and not, and in doing so, also wrestles on this interplay between the public and the private, in gender and in research. Through this, the thesis ultimately hopes to express how the organization of space is linked to how power organizes itself. This discussion is told through questions as they came to be felt.";
   }
 
   componentDidMount() {
@@ -343,7 +343,8 @@ class Application extends React.Component {
         <div class = "wrapper"
           style={{
             width: this.state.aboutWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
+            fontSize: 28
           }}
         >
           <span

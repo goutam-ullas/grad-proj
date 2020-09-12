@@ -301,7 +301,6 @@ button[aria-label][data-balloon-pos] {
 }
 
 .wrapper {
-font-size: 32;
 color: white;
 position: fixed;
 display:  flex;
