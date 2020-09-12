@@ -353,7 +353,7 @@ class Application extends React.Component {
             data-balloon-pos="down-right"
             onClick={this.aboutFunction}
             style={{
-              fontSize: 32,
+              fontSize: 28,
               position: "absolute",
               left: 10,
               color: "blue"
