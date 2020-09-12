@@ -245,14 +245,14 @@ class Application extends React.Component {
             data-balloon-pos="down-right"
             onClick={this.squareFunction}
             style={{
-              fontSize: 28,
+              fontSize: 48,
               position: "absolute",
               left: 380,
               color: "#2f1dfc",
               top: 12
             }}
           >
-            &#11199;
+            &#42;
           </span>
           <p
             style={{
