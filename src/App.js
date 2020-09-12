@@ -129,7 +129,7 @@ class Application extends React.Component {
       this.setState(prevState => ({ circleState: prevState.circleState + 1 }));
     }
     console.log(this.state.circleState);
-    var scrollTop = this.state.themeGap * this.state.circleState;
+    var scrollTop = this.state.themeStart * this.state.circleState;
     window.scrollTo(0, scrollTop);
   }
 
