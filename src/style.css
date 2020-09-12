@@ -299,3 +299,14 @@ button[aria-label][data-balloon-pos] {
   position: fixed;
   width: 100%;
 }
+
+.wrapper {
+font-size: 32;
+color: white;
+position: fixed;
+display:  flex;
+right: 0;
+top: 0;
+background-color: black;
+transition: width 0.5s
+}

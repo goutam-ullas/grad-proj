@@ -340,16 +340,10 @@ class Application extends React.Component {
             Theme 4
           </span>
         </div>
-        <div
+        <div class = "wrapper"
           style={{
-            fontSize: 32,
-            color: "white",
-            position: "fixed",
-            right: 0,
-            top: 0,
-            height: 800,
             width: this.state.aboutWidth,
-            backgroundColor: "black"
+            height: window.innerHeight
           }}
         >
           <span
