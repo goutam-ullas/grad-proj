@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import RubberSlider from "@shwilliam/react-rubber-slider";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
+import ReactPlayer from "react-player"
 
 import "@shwilliam/react-rubber-slider/dist/styles.css";
 import "./style.css";
@@ -172,8 +171,8 @@ class Application extends React.Component {
         >
           <p> theme 1 </p>
           <p> theme 1 description </p>
-          <div style={{ position: "absolute", top: 50, left: 500 }}>
-            visuals
+          <div style={{ position: "absolute", top: 0, left: 500}}>
+            <ReactPlayer height="180px" width="320px" url="https://www.youtube.com/watch?v=ug50zmP9I7s" />
           </div>
         </div>
         <div
