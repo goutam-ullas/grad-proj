@@ -30,7 +30,7 @@ class Application extends React.Component {
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
     this.aboutFunction = this.aboutFunction.bind(this);
-    this.aboutText = "Nikita Narayan's revolutionary graduation project"
+    this.aboutText = "Nikita Narayan's revolutionary graduation project";
   }
 
   componentDidMount() {
@@ -72,14 +72,13 @@ class Application extends React.Component {
     }
   }
 
-
   circleFunction() {
     console.log("circle");
     this.setState(prevState => ({
       circleState: !prevState.circleState
     }));
-    this.setState({aboutWidth: 0});
-    this.setState({aboutState: true});
+    this.setState({ aboutWidth: 0 });
+    this.setState({ aboutState: true });
     if (this.state.circleState == true) {
       this.setState({ circleText: "Circle" });
     } else {
@@ -92,8 +91,8 @@ class Application extends React.Component {
     this.setState(prevState => ({
       squareState: !prevState.squareState
     }));
-    this.setState({aboutWidth: 0});
-    this.setState({aboutState: true});
+    this.setState({ aboutWidth: 0 });
+    this.setState({ aboutState: true });
     if (this.state.squareState == true) {
       this.setState({ squareText: "Square" });
     } else {
@@ -295,17 +294,31 @@ class Application extends React.Component {
           </span>
         </div>
         <div
-        style={{
+          style={{
+            fontSize: 32,
+            color: "white",
+            position: "absolute",
+            right: -500,
+            top: 650,
+            height: 800,
+            width: this.state.aboutWidth,
+            backgroundColor: "blue"
+          }}
+        >
+          <span
+            role="button"
+            aria-label="Close"
+            onClick={this.aboutFunction}
+            style={{
               fontSize: 32,
-              color: 'white',
               position: "absolute",
-              right: -500,
-              top: 650,
-              height: 800,
-              width: this.state.aboutWidth,
-              backgroundColor: 'blue'
-            }}>
-          <p style ={{margin: 20}}> {this.aboutText} </p>
+              left: 10,
+              color: "white"
+            }}
+          >
+            		&#10005;
+          </span>
+          <p style={{ margin: 50 }}> {this.aboutText} </p>
         </div>
       </div>
     );
