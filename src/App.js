@@ -51,7 +51,7 @@ class Application extends React.Component {
     var deltaDistance = 100;
 
     // degrees the map rotates when the left or right arrow is clicked
-    var deltaDegrees = 25;
+    var deltaDegrees = 10;
 
     function easing(t) {
       return t * (2 - t);
@@ -77,13 +77,13 @@ class Application extends React.Component {
           } else if (e.which === 37) {
             // left
             this.map.easeTo({
-              bearing: this.map.getBearing() - 25,
+              bearing: this.map.getBearing() - deltaDegrees,
               easing: easing
             });
           } else if (e.which === 39) {
             // right
             this.map.easeTo({
-              bearing: this.map.getBearing() + 25,
+              bearing: this.map.getBearing() + deltaDegrees,
               easing: easing
             });
           }
