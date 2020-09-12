@@ -193,7 +193,7 @@ class Application extends React.Component {
             />
             <ReactPlayer
               className="video"
-              style={{ position: "absolute", top: 120, left: 800, zIndex:this.state.videoZindex2 }}
+              style={{ position: "absolute", top: 190, left: 650, zIndex:this.state.videoZindex2 }}
               height={this.state.videoDimX2 * 180}
               width={this.state.videoDimX2 * 320}
               url="https://www.youtube.com/watch?v=ug50zmP9I7s"
@@ -331,7 +331,8 @@ class Application extends React.Component {
           style={{
             width: this.state.aboutWidth,
             height: window.innerHeight,
-            fontSize: 28
+            fontSize: 28,
+            zIndex: 100
           }}
         >
           <span
