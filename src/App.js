@@ -297,9 +297,9 @@ class Application extends React.Component {
           style={{
             fontSize: 32,
             color: "white",
-            position: "absolute",
-            right: -500,
-            top: 650,
+            position: "fixed",
+            right: 0,
+            top: 0,
             height: 800,
             width: this.state.aboutWidth,
             backgroundColor: "blue"
