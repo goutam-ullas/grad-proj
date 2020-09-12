@@ -30,6 +30,7 @@ class Application extends React.Component {
     this.circleFunction = this.circleFunction.bind(this);
     this.squareFunction = this.squareFunction.bind(this);
     this.aboutFunction = this.aboutFunction.bind(this);
+    this.aboutText = "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
   }
 
   componentDidMount() {
@@ -77,6 +78,8 @@ class Application extends React.Component {
     this.setState(prevState => ({
       circleState: !prevState.circleState
     }));
+    this.setState({aboutWidth: 0});
+    this.setState({aboutState: true});
     if (this.state.circleState == true) {
       this.setState({ circleText: "Circle" });
     } else {
@@ -89,6 +92,8 @@ class Application extends React.Component {
     this.setState(prevState => ({
       squareState: !prevState.squareState
     }));
+    this.setState({aboutWidth: 0});
+    this.setState({aboutState: true});
     if (this.state.squareState == true) {
       this.setState({ squareText: "Square" });
     } else {
@@ -292,6 +297,7 @@ class Application extends React.Component {
         <div
         style={{
               fontSize: 32,
+              color: 'white',
               position: "absolute",
               right: -500,
               top: 650,
@@ -299,7 +305,7 @@ class Application extends React.Component {
               width: this.state.aboutWidth,
               backgroundColor: 'blue'
             }}>
-          <p> text </p>
+          <p style ={{margin: 20}}> this.aboutText </p>
         </div>
       </div>
     );
